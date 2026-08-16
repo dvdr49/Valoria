@@ -13,6 +13,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: #f5f6f8;
@@ -60,21 +64,21 @@
         }
 
         .hero {
-            min-height: 70vh;
+            min-height: 72vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 60px 20px;
+            padding: 70px 20px;
             background: #ffffff;
         }
 
         .hero img {
-            width: 260px;
+            width: 280px;
             max-width: 80%;
-            margin-bottom: 35px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            margin-bottom: 38px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
         }
 
         .hero h1 {
@@ -83,44 +87,54 @@
             font-weight: 800;
             margin-bottom: 12px;
         }
-        
-        .motto {
-    margin-top: 10px;
-    font-size: 15px;
-    letter-spacing: 3px;
-    font-weight: 600;
-    color: #66717c;
-    text-transform: none;
-        }
 
         .hero p {
             font-size: 18px;
             color: #66717c;
             letter-spacing: 2px;
-            text-transform: uppercase;
+        }
+
+        .motto {
+            margin-top: 10px;
+            font-size: 15px !important;
+            letter-spacing: 3px !important;
+            font-weight: 600;
+            color: #66717c;
         }
 
         .button {
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 32px;
             padding: 13px 28px;
             background: #17202a;
-            color: white;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 700;
             border-radius: 3px;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
         }
 
         section {
             max-width: 1150px;
             margin: auto;
-            padding: 80px 25px;
+            padding: 85px 25px;
         }
 
         section h2 {
             font-size: 32px;
             margin-bottom: 35px;
             letter-spacing: 1px;
+        }
+
+        .section-intro {
+            max-width: 750px;
+            color: #68737d;
+            margin-bottom: 30px;
         }
 
         .grid {
@@ -130,7 +144,7 @@
         }
 
         .card {
-            background: white;
+            background: #ffffff;
             padding: 32px;
             border: 1px solid #e1e5e9;
             transition: 0.2s;
@@ -138,7 +152,7 @@
 
         .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
         }
 
         .card h3 {
@@ -150,6 +164,16 @@
             color: #68737d;
         }
 
+        .symbol {
+            text-align: center;
+        }
+
+        .symbol img {
+            width: 220px;
+            max-width: 80%;
+            margin-bottom: 20px;
+        }
+
         .accounts a {
             display: block;
             margin-top: 12px;
@@ -158,17 +182,39 @@
             text-decoration: none;
         }
 
+        .accounts a:hover {
+            opacity: 0.6;
+        }
+
+        .president-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #66717c;
+            margin-bottom: 8px;
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 6px 12px;
+            border: 1px solid #dfe3e8;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
         footer {
             background: #17202a;
-            color: white;
+            color: #ffffff;
             text-align: center;
-            padding: 35px 20px;
+            padding: 40px 20px;
             font-size: 14px;
         }
 
         footer p {
             opacity: 0.7;
-            margin-top: 7px;
+            margin-top: 8px;
         }
 
         @media (max-width: 750px) {
@@ -177,8 +223,13 @@
                 gap: 15px;
             }
 
+            nav {
+                text-align: center;
+            }
+
             nav a {
-                margin: 0 8px;
+                margin: 0 7px;
+                font-size: 13px;
             }
 
             .grid {
@@ -218,8 +269,9 @@
 
     <h1>STATE OF VALORIA</h1>
 
-   <p>Official Website</p>
-<p class="motto">Peace · Freedom · Unity</p>
+    <p>Official Website</p>
+
+    <p class="motto">Peace · Freedom · Unity</p>
 
     <a href="#about" class="button">Explore Valoria</a>
 
@@ -230,23 +282,29 @@
 
     <h2>About Valoria</h2>
 
+    <p class="section-intro">
+        Welcome to the official website of the State of Valoria.
+        This platform provides information about Valoria, its identity,
+        symbols, leadership and official activities.
+    </p>
+
     <div class="grid">
 
         <div class="card">
             <h3>The State</h3>
             <p>
-                Welcome to the official website of the State of Valoria.
-                This website serves as the central platform for information,
-                announcements and activities of Valoria.
+                The State of Valoria is a micronational project established
+                in 2026, built around its own identity, symbols and institutions.
             </p>
         </div>
 
         <div class="card">
-            <h3>Founded</h3>
+            <h3>Established</h3>
             <p>
-                Valoria was established in 2026 as an independent
-                micronational project.
+                Valoria was established in 2026.
             </p>
+
+            <span class="status">Established 2026</span>
         </div>
 
     </div>
@@ -258,21 +316,35 @@
 
     <h2>State Symbols</h2>
 
+    <p class="section-intro">
+        The official symbols of Valoria represent its identity,
+        principles and national character.
+    </p>
+
     <div class="grid">
 
-        <div class="card">
+        <div class="card symbol">
+
+            <img src="flag.png" alt="Flag of Valoria">
+
             <h3>National Flag</h3>
+
             <p>
-                The official flag of Valoria represents the identity
-                and principles of the State.
+                The official flag of the State of Valoria.
             </p>
+
         </div>
 
         <div class="card">
-            <h3>State Emblem</h3>
+
+            <h3>The Valorian Compass</h3>
+
             <p>
-                The official emblem of Valoria will be presented here.
+                The four-point compass star serves as the central
+                national symbol of Valoria, representing direction,
+                purpose and unity.
             </p>
+
         </div>
 
     </div>
@@ -285,6 +357,10 @@
     <h2>Presidency</h2>
 
     <div class="card">
+
+        <p class="president-title">
+            Head of State
+        </p>
 
         <h3>President of the State of Valoria</h3>
 
@@ -302,13 +378,19 @@
 
     <h2>Official Accounts</h2>
 
+    <p class="section-intro">
+        Official social media and communication channels of Valoria.
+    </p>
+
     <div class="grid accounts">
 
         <div class="card">
 
             <h3>Social Media</h3>
 
-            <p>Official Valorian accounts and communications.</p>
+            <p>
+                Official Valorian accounts and communications.
+            </p>
 
             <a href="#">Instagram →</a>
             <a href="#">YouTube →</a>
@@ -336,6 +418,11 @@
 
     <h2>Games & Activities</h2>
 
+    <p class="section-intro">
+        Games, competitions and community activities associated
+        with the Valorian project.
+    </p>
+
     <div class="grid">
 
         <div class="card">
@@ -343,8 +430,7 @@
             <h3>Valorian Games</h3>
 
             <p>
-                Games, competitions and community activities
-                organized by Valoria.
+                Games and competitions organized by Valoria.
             </p>
 
         </div>
