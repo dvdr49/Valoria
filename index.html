@@ -1,1 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>State of Valoria</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f6f8;
+            color: #17202a;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #dfe3e8;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .brand img {
+            width: 48px;
+            height: 30px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #17202a;
+            margin-left: 25px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: #ffffff;
+        }
+
+        .hero img {
+            width: 260px;
+            max-width: 80%;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 88px);
+            letter-spacing: 5px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #66717c;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 13px 28px;
+            background: #17202a;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 3px;
+        }
+
+        section {
+            max-width: 1150px;
+            margin: auto;
+            padding: 80px 25px;
+        }
+
+        section h2 {
+            font-size: 32px;
+            margin-bottom: 35px;
+            letter-spacing: 1px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 32px;
+            border: 1px solid #e1e5e9;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .card p {
+            color: #68737d;
+        }
+
+        .accounts a {
+            display: block;
+            margin-top: 12px;
+            color: #17202a;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        footer {
+            background: #17202a;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            font-size: 14px;
+        }
+
+        footer p {
+            opacity: 0.7;
+            margin-top: 7px;
+        }
+
+        @media (max-width: 750px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="brand">
+        <img src="flag.png" alt="Flag of Valoria">
+        <span>VALORIA</span>
+    </div>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#symbols">Symbols</a>
+        <a href="#presidency">Presidency</a>
+        <a href="#accounts">Accounts</a>
+        <a href="#games">Games</a>
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <img src="flag.png" alt="Flag of Valoria">
+
+    <h1>STATE OF VALORIA</h1>
+
+    <p>Official Website</p>
+
+    <a href="#about" class="button">Explore Valoria</a>
+
+</section>
+
+
+<section id="about">
+
+    <h2>About Valoria</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>The State</h3>
+            <p>
+                Welcome to the official website of the State of Valoria.
+                This website serves as the central platform for information,
+                announcements and activities of Valoria.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Founded</h3>
+            <p>
+                Valoria was established in 2026 as an independent
+                micronational project.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="symbols">
+
+    <h2>State Symbols</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>National Flag</h3>
+            <p>
+                The official flag of Valoria represents the identity
+                and principles of the State.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>State Emblem</h3>
+            <p>
+                The official emblem of Valoria will be presented here.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="presidency">
+
+    <h2>Presidency</h2>
+
+    <div class="card">
+
+        <h3>President of the State of Valoria</h3>
+
+        <p>
+            The President serves as Head of State and
+            Commander-in-Chief of the Valorian Armed Forces.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="accounts">
+
+    <h2>Official Accounts</h2>
+
+    <div class="grid accounts">
+
+        <div class="card">
+
+            <h3>Social Media</h3>
+
+            <p>Official Valorian accounts and communications.</p>
+
+            <a href="#">Instagram →</a>
+            <a href="#">YouTube →</a>
+            <a href="#">Discord →</a>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Official Communications</h3>
+
+            <p>
+                Official announcements and public communications
+                from Valoria.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="games">
+
+    <h2>Games & Activities</h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>Valorian Games</h3>
+
+            <p>
+                Games, competitions and community activities
+                organized by Valoria.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Coming Soon</h3>
+
+            <p>
+                More games and activities will be announced soon.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <strong>STATE OF VALORIA</strong>
+
+    <p>Official Website • Established 2026</p>
+
+    <p>
+        Valoria is a micronational project and does not claim
+        sovereignty over territory belonging to another state.
+    </p>
+
+</footer>
+
+</body>
+</html>
