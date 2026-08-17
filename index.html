@@ -56,7 +56,7 @@
         nav a {
             text-decoration: none;
             color: #17202a;
-            margin-left: 25px;
+            margin-left: 22px;
             font-size: 14px;
             font-weight: 600;
         }
@@ -65,48 +65,86 @@
             opacity: 0.6;
         }
 
+        /* HERO */
+
         .hero {
-            min-height: 72vh;
+            min-height: 82vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 70px 20px;
-            background: #ffffff;
+            padding: 80px 20px;
+            background:
+                radial-gradient(circle at center, rgba(210, 220, 230, 0.35), transparent 55%),
+                #ffffff;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero img {
-            width: 280px;
-            max-width: 80%;
-            margin-bottom: 38px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border: 1px solid rgba(23, 32, 42, 0.05);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 430px;
+            height: 430px;
+            border: 1px solid rgba(23, 32, 42, 0.04);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-flag {
+            width: 300px;
+            max-width: 75%;
+            margin-bottom: 40px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.14);
         }
 
         .hero h1 {
             font-size: clamp(42px, 7vw, 88px);
-            letter-spacing: 5px;
+            letter-spacing: 6px;
             font-weight: 800;
-            margin-bottom: 12px;
+            line-height: 1.05;
+            margin-bottom: 18px;
         }
 
-        .hero p {
-            font-size: 18px;
+        .official-title {
+            font-size: 17px;
             color: #66717c;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         .motto {
-            margin-top: 10px;
-            font-size: 15px !important;
-            letter-spacing: 3px !important;
-            font-weight: 600;
+            margin-top: 14px;
+            font-size: 15px;
             color: #66717c;
+            letter-spacing: 4px;
+            font-weight: 600;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .button {
             display: inline-block;
-            margin-top: 32px;
             padding: 13px 28px;
             background: #17202a;
             color: #ffffff;
@@ -120,6 +158,14 @@
             transform: translateY(-2px);
             opacity: 0.9;
         }
+
+        .button.secondary {
+            background: transparent;
+            color: #17202a;
+            border: 1px solid #17202a;
+        }
+
+        /* SECTIONS */
 
         section {
             max-width: 1150px;
@@ -166,6 +212,33 @@
             color: #68737d;
         }
 
+        /* GOVERNMENT */
+
+        .government-card {
+            min-height: 210px;
+        }
+
+        .branch-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #66717c;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .government-list {
+            margin-top: 18px;
+            padding-left: 20px;
+            color: #68737d;
+        }
+
+        .government-list li {
+            margin-bottom: 6px;
+        }
+
+        /* SYMBOLS */
+
         .symbol {
             text-align: center;
         }
@@ -179,6 +252,8 @@
             box-shadow: none;
         }
 
+        /* ACCOUNTS */
+
         .accounts a {
             display: block;
             margin-top: 12px;
@@ -190,6 +265,8 @@
         .accounts a:hover {
             opacity: 0.6;
         }
+
+        /* PRESIDENCY */
 
         .president-title {
             font-size: 14px;
@@ -209,6 +286,8 @@
             text-transform: uppercase;
         }
 
+        /* FOOTER */
+
         footer {
             background: #17202a;
             color: #ffffff;
@@ -222,7 +301,10 @@
             margin-top: 8px;
         }
 
+        /* MOBILE */
+
         @media (max-width: 750px) {
+
             header {
                 flex-direction: column;
                 gap: 15px;
@@ -244,6 +326,10 @@
             .hero h1 {
                 letter-spacing: 2px;
             }
+
+            .hero-flag {
+                width: 240px;
+            }
         }
     </style>
 </head>
@@ -253,55 +339,92 @@
 <header>
 
     <div class="brand">
+
         <img src="flag.png" alt="Flag of Valoria">
+
         <span>VALORIA</span>
+
     </div>
 
     <nav>
+
         <a href="#about">About</a>
+        <a href="#government">Federal Government</a>
         <a href="#symbols">Symbols</a>
-        <a href="#presidency">Presidency</a>
         <a href="#accounts">Accounts</a>
         <a href="#games">Games</a>
+
     </nav>
 
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero">
 
-    <img src="flag.png" alt="Flag of Valoria">
+    <div class="hero-content">
 
-    <h1>STATE OF VALORIA</h1>
+        <img
+            class="hero-flag"
+            src="flag.png"
+            alt="Flag of Valoria"
+        >
 
-    <p>Official Website</p>
+        <h1>STATE OF VALORIA</h1>
 
-    <p class="motto">Peace · Freedom · Unity</p>
+        <p class="official-title">
+            Official Website of the State of Valoria
+        </p>
 
-    <a href="#about" class="button">Explore Valoria</a>
+        <p class="motto">
+            Peace · Freedom · Unity
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#about" class="button">
+                Explore Valoria
+            </a>
+
+            <a href="#government" class="button secondary">
+                Federal Government
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
 
+
+<!-- ABOUT -->
 
 <section id="about">
 
     <h2>About Valoria</h2>
 
     <p class="section-intro">
+
         Welcome to the official website of the State of Valoria.
         This platform provides information about Valoria, its identity,
         symbols, leadership and official activities.
+
     </p>
 
     <div class="grid">
 
         <div class="card">
+
             <h3>The State</h3>
 
             <p>
+
                 The State of Valoria is a micronational project established
                 in 2026, built around its own identity, symbols and institutions.
+
             </p>
+
         </div>
 
         <div class="card">
@@ -312,7 +435,9 @@
                 Valoria was established in 2026.
             </p>
 
-            <span class="status">Established 2026</span>
+            <span class="status">
+                Established 2026
+            </span>
 
         </div>
 
@@ -321,20 +446,133 @@
 </section>
 
 
+<!-- FEDERAL GOVERNMENT -->
+
+<section id="government">
+
+    <h2>Federal Government</h2>
+
+    <p class="section-intro">
+
+        The Federal Government of Valoria is organized into
+        executive, legislative and judicial branches, together
+        with federal departments serving the Valorian community.
+
+    </p>
+
+    <div class="grid">
+
+        <div class="card government-card">
+
+            <div class="branch-label">
+                Executive Branch
+            </div>
+
+            <h3>Executive Branch</h3>
+
+            <p>
+                The executive branch is led by the President
+                and Vice President of Valoria.
+            </p>
+
+            <ul class="government-list">
+                <li>President of Valoria</li>
+                <li>Vice President</li>
+                <li>Cabinet</li>
+            </ul>
+
+        </div>
+
+
+        <div class="card government-card">
+
+            <div class="branch-label">
+                Legislative Branch
+            </div>
+
+            <h3>Legislative Branch</h3>
+
+            <p>
+                The legislative branch represents the Valorian
+                community through a bicameral legislature.
+            </p>
+
+            <ul class="government-list">
+                <li>Senate</li>
+                <li>House of Representatives</li>
+            </ul>
+
+        </div>
+
+
+        <div class="card government-card">
+
+            <div class="branch-label">
+                Judicial Branch
+            </div>
+
+            <h3>Judicial Branch</h3>
+
+            <p>
+                The judicial branch interprets the laws and
+                constitutional framework of Valoria.
+            </p>
+
+            <ul class="government-list">
+                <li>Supreme Court</li>
+            </ul>
+
+        </div>
+
+
+        <div class="card government-card">
+
+            <div class="branch-label">
+                Federal Departments
+            </div>
+
+            <h3>Federal Departments</h3>
+
+            <p>
+                Federal departments manage important areas
+                of Valoria's community and administration.
+            </p>
+
+            <ul class="government-list">
+                <li>Department of State</li>
+                <li>Department of Communications</li>
+                <li>Department of Homeland Security</li>
+                <li>Department of Justice</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SYMBOLS -->
+
 <section id="symbols">
 
     <h2>State Symbols</h2>
 
     <p class="section-intro">
+
         The official symbols of Valoria represent its identity,
         principles and national character.
+
     </p>
 
     <div class="grid">
 
         <div class="card symbol">
 
-            <img src="flag.png" alt="Flag of Valoria">
+            <img
+                src="flag.png"
+                alt="Flag of Valoria"
+            >
 
             <h3>National Flag</h3>
 
@@ -344,16 +582,22 @@
 
         </div>
 
+
         <div class="card symbol">
 
-            <img src="emblem.png" alt="The Valorian Compass">
+            <img
+                src="emblem.png"
+                alt="The Valorian Compass"
+            >
 
             <h3>The Valorian Compass</h3>
 
             <p>
-                The four-point compass star featured at the center
+
+                The four-point compass featured at the center
                 of the national flag serves as the principal symbol
                 of Valoria.
+
             </p>
 
         </div>
@@ -362,6 +606,8 @@
 
 </section>
 
+
+<!-- PRESIDENCY -->
 
 <section id="presidency">
 
@@ -373,11 +619,15 @@
             Head of State
         </p>
 
-        <h3>President of the State of Valoria</h3>
+        <h3>
+            President of the State of Valoria
+        </h3>
 
         <p>
+
             The President serves as Head of State and
             Commander-in-Chief of the Valorian Armed Forces.
+
         </p>
 
     </div>
@@ -385,17 +635,21 @@
 </section>
 
 
+<!-- ACCOUNTS -->
+
 <section id="accounts">
 
     <h2>Official Accounts</h2>
 
     <p class="section-intro">
+
         Official social media and communication channels of Valoria.
+
     </p>
 
-    <div class="grid accounts">
+    <div class="grid">
 
-        <div class="card">
+        <div class="card accounts">
 
             <h3>Social Media</h3>
 
@@ -403,33 +657,42 @@
                 Official Valorian accounts and communications.
             </p>
 
-            <a href="https://www.instagram.com/valoria.state/"
-               target="_blank"
-               rel="noopener noreferrer">
+            <a
+                href="https://www.instagram.com/valoria.state/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 Instagram — @valoria.state →
             </a>
 
-            <a href="https://www.youtube.com/@StateofValoria"
-               target="_blank"
-               rel="noopener noreferrer">
+            <a
+                href="https://www.youtube.com/@StateofValoria"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 YouTube — StateofValoria →
             </a>
 
-            <a href="https://discord.gg/6ryuwZMVkg"
-               target="_blank"
-               rel="noopener noreferrer">
+            <a
+                href="https://discord.gg/6ryuwZMVkg"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 Discord — Official Server →
             </a>
 
         </div>
+
 
         <div class="card">
 
             <h3>Official Communications</h3>
 
             <p>
+
                 Official announcements and public communications
                 from Valoria.
+
             </p>
 
         </div>
@@ -439,13 +702,17 @@
 </section>
 
 
+<!-- GAMES -->
+
 <section id="games">
 
     <h2>Games & Activities</h2>
 
     <p class="section-intro">
+
         Games, competitions and community activities associated
         with the Valorian project.
+
     </p>
 
     <div class="grid">
@@ -455,17 +722,22 @@
             <h3>Valorian Games</h3>
 
             <p>
+
                 Games and competitions organized by Valoria.
+
             </p>
 
         </div>
+
 
         <div class="card">
 
             <h3>Coming Soon</h3>
 
             <p>
+
                 More games and activities will be announced soon.
+
             </p>
 
         </div>
@@ -475,18 +747,25 @@
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
     <strong>STATE OF VALORIA</strong>
 
-    <p>Official Website • Established 2026</p>
+    <p>
+        Official Website • Established 2026
+    </p>
 
     <p>
+
         Valoria is a micronational project and does not claim
         sovereignty over territory belonging to another state.
+
     </p>
 
 </footer>
+
 
 </body>
 </html>
