@@ -1,14 +1,76 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Official website of the State of Valoria."
+    >
+
+    <meta
+        name="theme-color"
+        content="#17202a"
+    >
 
     <title>State of Valoria</title>
 
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
 
     <style>
+
+        /* =========================================================
+           ROOT
+        ========================================================= */
+
+        :root {
+            --ink: #17202a;
+            --ink-soft: #34414d;
+            --muted: #68737d;
+            --light-muted: #8a949d;
+
+            --background: #f4f6f8;
+            --surface: #ffffff;
+            --surface-soft: #f8f9fa;
+
+            --border: #dfe4e8;
+            --border-dark: #cbd2d8;
+
+            --shadow-sm:
+                0 4px 15px rgba(20, 30, 40, 0.06);
+
+            --shadow-md:
+                0 12px 35px rgba(20, 30, 40, 0.10);
+
+            --shadow-lg:
+                0 25px 70px rgba(20, 30, 40, 0.14);
+
+            --max-width: 1180px;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 14px;
+
+            --transition:
+                220ms ease;
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -17,377 +79,1782 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f6f8;
-            color: #17202a;
-            line-height: 1.6;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: var(--background);
+            color: var(--ink);
+
+            line-height: 1.65;
+
+            overflow-x: hidden;
         }
 
-        header {
-            background: #ffffff;
-            border-bottom: 1px solid #dfe3e8;
-            padding: 18px 7%;
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button {
+            font: inherit;
+        }
+
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        .container {
+            width: min(
+                calc(100% - 44px),
+                var(--max-width)
+            );
+
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            display: inline-block;
+
+            margin-bottom: 12px;
+
+            color: var(--muted);
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 2.5px;
+
+            text-transform: uppercase;
+        }
+
+        .section-heading {
+            max-width: 760px;
+
+            margin-bottom: 45px;
+        }
+
+        .section-heading h2 {
+            margin-bottom: 15px;
+
+            font-size: clamp(
+                32px,
+                4vw,
+                48px
+            );
+
+            line-height: 1.1;
+
+            letter-spacing: -0.8px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+
+            font-size: 16px;
+        }
+
+        .section {
+            padding: 105px 0;
+        }
+
+
+        /* =========================================================
+           TOP BAR
+        ========================================================= */
+
+        .topbar {
+            background: var(--ink);
+            color: #ffffff;
+
+            border-bottom:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+        }
+
+        .topbar-inner {
+            min-height: 38px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .topbar-text {
+            font-size: 11px;
+            letter-spacing: 1.4px;
+
+            text-transform: uppercase;
+
+            opacity: 0.72;
+        }
+
+        .topbar-link {
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            opacity: 0.9;
+        }
+
+        .topbar-link:hover {
+            opacity: 0.6;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .site-header {
             position: sticky;
             top: 0;
+
             z-index: 1000;
+
+            background:
+                rgba(255, 255, 255, 0.96);
+
+            backdrop-filter:
+                blur(12px);
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+        .header-inner {
+            min-height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 14px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
 
-        .brand img {
-            width: 48px;
-            height: 30px;
-            object-fit: cover;
-            border: 1px solid #ddd;
-        }
+            gap: 13px;
 
-        nav a {
             text-decoration: none;
-            color: #17202a;
-            margin-left: 22px;
-            font-size: 14px;
-            font-weight: 600;
+
+            flex-shrink: 0;
         }
 
-        nav a:hover {
-            opacity: 0.6;
+        .brand-flag {
+            width: 46px;
+            height: 29px;
+
+            object-fit: cover;
+
+            border:
+                1px solid
+                var(--border-dark);
+
+            box-shadow:
+                0 3px 8px
+                rgba(0, 0, 0, 0.08);
         }
 
-        /* HERO */
-
-        .hero {
-            min-height: 82vh;
+        .brand-text {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+        }
+
+        .brand-name {
+            font-size: 14px;
+            font-weight: 900;
+
+            letter-spacing: 2.4px;
+        }
+
+        .brand-subtitle {
+            color: var(--muted);
+
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 1.3px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .main-nav {
+            display: flex;
             align-items: center;
-            text-align: center;
-            padding: 80px 20px;
-            background:
-                radial-gradient(circle at center, rgba(210, 220, 230, 0.35), transparent 55%),
-                #ffffff;
+
+            gap: 4px;
+        }
+
+        .main-nav a {
             position: relative;
+
+            padding: 29px 13px;
+
+            color: var(--ink-soft);
+
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+
+            transition:
+                color var(--transition);
+        }
+
+        .main-nav a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 13px;
+            right: 13px;
+            bottom: 20px;
+
+            height: 2px;
+
+            background: var(--ink);
+
+            transform:
+                scaleX(0);
+
+            transform-origin: center;
+
+            transition:
+                transform var(--transition);
+        }
+
+        .main-nav a:hover {
+            color: #000000;
+        }
+
+        .main-nav a:hover::after {
+            transform:
+                scaleX(1);
+        }
+
+        .mobile-menu {
+            display: none;
+
+            width: 43px;
+            height: 43px;
+
+            border:
+                1px solid var(--border);
+
+            background: var(--surface);
+
+            cursor: pointer;
+
+            border-radius:
+                var(--radius-sm);
+        }
+
+        .mobile-menu span {
+            display: block;
+
+            width: 19px;
+            height: 2px;
+
+            margin: 4px auto;
+
+            background: var(--ink);
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+
+            min-height: 790px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
             overflow: hidden;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #f7f8f9 100%
+                );
         }
 
-        .hero::before {
-            content: "";
+        .hero-grid {
             position: absolute;
-            width: 600px;
-            height: 600px;
-            border: 1px solid rgba(23, 32, 42, 0.05);
-            border-radius: 50%;
+
+            inset: 0;
+
+            opacity: 0.45;
+
+            background-image:
+                linear-gradient(
+                    rgba(23, 32, 42, 0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(23, 32, 42, 0.035) 1px,
+                    transparent 1px
+                );
+
+            background-size:
+                60px 60px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 80%
+                );
         }
 
-        .hero::after {
-            content: "";
+        .hero-ring {
             position: absolute;
-            width: 430px;
-            height: 430px;
-            border: 1px solid rgba(23, 32, 42, 0.04);
+
+            border:
+                1px solid
+                rgba(23, 32, 42, 0.055);
+
             border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .hero-ring.one {
+            width: 700px;
+            height: 700px;
+        }
+
+        .hero-ring.two {
+            width: 500px;
+            height: 500px;
+        }
+
+        .hero-ring.three {
+            width: 320px;
+            height: 320px;
         }
 
         .hero-content {
             position: relative;
+
             z-index: 2;
+
+            width: min(
+                900px,
+                calc(100% - 30px)
+            );
+        }
+
+        .hero-emblem {
+            width: 105px;
+            height: 105px;
+
+            object-fit: contain;
+
+            margin: 0 auto 25px;
+
+            filter:
+                drop-shadow(
+                    0 10px 22px
+                    rgba(0, 0, 0, 0.12)
+                );
         }
 
         .hero-flag {
-            width: 300px;
-            max-width: 75%;
-            margin-bottom: 40px;
-            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.14);
+            width: 340px;
+            max-width: 72vw;
+
+            margin: 0 auto 42px;
+
+            box-shadow:
+                0 25px 60px
+                rgba(0, 0, 0, 0.15);
+
+            border:
+                1px solid
+                rgba(23, 32, 42, 0.12);
         }
 
         .hero h1 {
-            font-size: clamp(42px, 7vw, 88px);
-            letter-spacing: 6px;
-            font-weight: 800;
-            line-height: 1.05;
-            margin-bottom: 18px;
+            margin-bottom: 19px;
+
+            font-size:
+                clamp(
+                    43px,
+                    8vw,
+                    94px
+                );
+
+            line-height: 0.98;
+
+            font-weight: 900;
+
+            letter-spacing:
+                clamp(
+                    2px,
+                    0.8vw,
+                    7px
+                );
         }
 
-        .official-title {
-            font-size: 17px;
-            color: #66717c;
+        .hero-official {
+            color: var(--muted);
+
+            font-size:
+                clamp(
+                    13px,
+                    2vw,
+                    17px
+                );
+
+            font-weight: 700;
+
             letter-spacing: 3px;
+
             text-transform: uppercase;
         }
 
-        .motto {
-            margin-top: 14px;
-            font-size: 15px;
-            color: #66717c;
+        .hero-motto {
+            margin-top: 12px;
+
+            color: var(--light-muted);
+
+            font-size: 13px;
+            font-weight: 700;
+
             letter-spacing: 4px;
-            font-weight: 600;
+
+            text-transform: uppercase;
         }
 
-        .hero-buttons {
-            margin-top: 35px;
+        .hero-actions {
             display: flex;
-            gap: 12px;
+            align-items: center;
             justify-content: center;
+
+            gap: 12px;
+
             flex-wrap: wrap;
+
+            margin-top: 35px;
         }
 
         .button {
-            display: inline-block;
-            padding: 13px 28px;
-            background: #17202a;
-            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 48px;
+
+            padding:
+                0 25px;
+
+            border-radius:
+                var(--radius-sm);
+
             text-decoration: none;
-            font-weight: 700;
-            border-radius: 3px;
-            transition: 0.2s;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 0.8px;
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition),
+                background var(--transition);
         }
 
-        .button:hover {
-            transform: translateY(-2px);
-            opacity: 0.9;
+        .button-primary {
+            background: var(--ink);
+            color: #ffffff;
+
+            box-shadow:
+                var(--shadow-sm);
         }
 
-        .button.secondary {
-            background: transparent;
-            color: #17202a;
-            border: 1px solid #17202a;
+        .button-primary:hover {
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                var(--shadow-md);
+
+            background: #000000;
         }
 
-        /* SECTIONS */
+        .button-secondary {
+            background: #ffffff;
+            color: var(--ink);
 
-        section {
-            max-width: 1150px;
-            margin: auto;
-            padding: 85px 25px;
+            border:
+                1px solid
+                var(--border-dark);
         }
 
-        section h2 {
-            font-size: 32px;
-            margin-bottom: 35px;
-            letter-spacing: 1px;
+        .button-secondary:hover {
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                var(--shadow-sm);
         }
 
-        .section-intro {
-            max-width: 750px;
-            color: #68737d;
+
+        /* =========================================================
+           OFFICIAL NOTICE
+        ========================================================= */
+
+        .notice {
+            background: var(--ink);
+            color: #ffffff;
+        }
+
+        .notice-inner {
+            min-height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 14px;
+
+            text-align: center;
+        }
+
+        .notice-mark {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #ffffff;
+
+            flex-shrink: 0;
+        }
+
+        .notice p {
+            font-size: 12px;
+            letter-spacing: 0.4px;
+
+            opacity: 0.84;
+        }
+
+
+        /* =========================================================
+           SYMBOLS
+        ========================================================= */
+
+        .symbols-section {
+            background: #ffffff;
+        }
+
+        .symbol-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 24px;
+        }
+
+        .symbol-card {
+            position: relative;
+
+            padding: 45px;
+
+            background: var(--surface-soft);
+
+            border:
+                1px solid
+                var(--border);
+
+            overflow: hidden;
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .symbol-card:hover {
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                var(--shadow-md);
+        }
+
+        .symbol-number {
+            position: absolute;
+
+            top: 22px;
+            right: 27px;
+
+            color:
+                rgba(23, 32, 42, 0.08);
+
+            font-size: 42px;
+            font-weight: 900;
+        }
+
+        .symbol-image-wrap {
+            min-height: 230px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             margin-bottom: 30px;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
+        .symbol-image {
+            width: 245px;
+            height: 215px;
+
+            object-fit: contain;
         }
 
-        .card {
-            background: #ffffff;
-            padding: 32px;
-            border: 1px solid #e1e5e9;
-            transition: 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .card h3 {
+        .symbol-card h3 {
             margin-bottom: 10px;
+
+            font-size: 22px;
+        }
+
+        .symbol-card p {
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-section {
+            background: var(--background);
+        }
+
+        .about-layout {
+            display: grid;
+
+            grid-template-columns:
+                1.2fr
+                0.8fr;
+
+            gap: 55px;
+
+            align-items: start;
+        }
+
+        .about-main h3 {
+            margin-bottom: 18px;
+
+            font-size: 27px;
+        }
+
+        .about-main p {
+            margin-bottom: 18px;
+
+            color: var(--muted);
+
+            font-size: 16px;
+        }
+
+        .about-facts {
+            display: grid;
+
+            gap: 12px;
+        }
+
+        .fact {
+            padding: 22px;
+
+            background: #ffffff;
+
+            border:
+                1px solid
+                var(--border);
+        }
+
+        .fact-label {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: var(--light-muted);
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 1.7px;
+
+            text-transform: uppercase;
+        }
+
+        .fact-value {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           GOVERNMENT
+        ========================================================= */
+
+        .government-section {
+            background: #ffffff;
+        }
+
+        .branch-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+
+            margin-bottom: 55px;
+        }
+
+        .branch-card {
+            padding: 34px;
+
+            background: var(--surface-soft);
+
+            border:
+                1px solid
+                var(--border);
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .branch-card:hover {
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                var(--shadow-md);
+        }
+
+        .branch-icon {
+            width: 46px;
+            height: 46px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 24px;
+
+            border:
+                1px solid
+                var(--border-dark);
+
+            color: var(--ink);
+
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .branch-card .label {
+            margin-bottom: 8px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        .branch-card h3 {
+            margin-bottom: 12px;
+
+            font-size: 22px;
+        }
+
+        .branch-card p {
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+        .government-banner {
+            padding: 40px;
+
+            background: var(--ink);
+            color: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .government-banner h3 {
+            margin-bottom: 7px;
+
+            font-size: 25px;
+        }
+
+        .government-banner p {
+            max-width: 680px;
+
+            color:
+                rgba(255, 255, 255, 0.67);
+
+            font-size: 14px;
+        }
+
+        .government-banner .button {
+            background: #ffffff;
+            color: var(--ink);
+
+            flex-shrink: 0;
+        }
+
+
+        /* =========================================================
+           LEADERSHIP
+        ========================================================= */
+
+        .leadership-section {
+            background: var(--background);
+        }
+
+        .office-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .office-card {
+            padding: 32px;
+
+            background: #ffffff;
+
+            border:
+                1px solid
+                var(--border);
+        }
+
+        .office-card .office-label {
+            color: var(--muted);
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+        .office-card h3 {
+            margin-bottom: 9px;
+
+            font-size: 20px;
+        }
+
+        .office-card p {
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+        .office-status {
+            display: inline-block;
+
+            margin-top: 18px;
+
+            padding:
+                5px 9px;
+
+            border:
+                1px solid
+                var(--border);
+
+            color: var(--light-muted);
+
+            font-size: 9px;
+            font-weight: 800;
+
+            letter-spacing: 1.4px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           DEPARTMENTS
+        ========================================================= */
+
+        .departments-section {
+            background: #ffffff;
+        }
+
+        .department-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .department-card {
+            position: relative;
+
+            padding: 38px;
+
+            border:
+                1px solid
+                var(--border);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #f7f8f9
+                );
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .department-card:hover {
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                var(--shadow-md);
+        }
+
+        .department-number {
+            position: absolute;
+
+            top: 22px;
+            right: 26px;
+
+            font-size: 45px;
+            font-weight: 900;
+
+            color:
+                rgba(23, 32, 42, 0.055);
+        }
+
+        .department-code {
+            display: inline-block;
+
+            margin-bottom: 16px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+            font-weight: 900;
+
+            letter-spacing: 2px;
+        }
+
+        .department-card h3 {
+            max-width: 430px;
+
+            margin-bottom: 12px;
+
+            font-size: 23px;
+        }
+
+        .department-card p {
+            max-width: 500px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+        .department-responsibilities {
+            margin-top: 20px;
+
+            padding-top: 18px;
+
+            border-top:
+                1px solid
+                var(--border);
+
+            list-style: none;
+        }
+
+        .department-responsibilities li {
+            position: relative;
+
+            padding-left: 18px;
+
+            margin-bottom: 7px;
+
+            color: var(--ink-soft);
+
+            font-size: 13px;
+        }
+
+        .department-responsibilities li::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 10px;
+
+            width: 5px;
+            height: 5px;
+
+            background: var(--ink);
+
+            border-radius: 50%;
+        }
+
+
+        /* =========================================================
+           CIVIC FRAMEWORK
+        ========================================================= */
+
+        .framework-section {
+            background: var(--background);
+        }
+
+        .framework-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .framework-card {
+            padding: 32px;
+
+            background: #ffffff;
+
+            border:
+                1px solid
+                var(--border);
+        }
+
+        .framework-card h3 {
+            margin-bottom: 10px;
+
+            font-size: 20px;
+        }
+
+        .framework-card p {
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================================
+           ACCOUNTS
+        ========================================================= */
+
+        .accounts-section {
+            background: #ffffff;
+        }
+
+        .account-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .account-card {
+            padding: 30px;
+
+            background: var(--surface-soft);
+
+            border:
+                1px solid
+                var(--border);
+
+            text-decoration: none;
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .account-card:hover {
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                var(--shadow-md);
+        }
+
+        .account-platform {
+            margin-bottom: 10px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        .account-card h3 {
+            margin-bottom: 7px;
+
             font-size: 21px;
         }
 
-        .card p {
-            color: #68737d;
+        .account-card p {
+            color: var(--muted);
+
+            font-size: 13px;
         }
 
-        /* GOVERNMENT */
+        .account-arrow {
+            display: block;
 
-        .government-card {
-            min-height: 210px;
-        }
+            margin-top: 20px;
 
-        .branch-label {
             font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #66717c;
-            margin-bottom: 8px;
-            font-weight: 700;
+            font-weight: 800;
+
+            letter-spacing: 0.5px;
         }
 
-        .government-list {
-            margin-top: 18px;
-            padding-left: 20px;
-            color: #68737d;
+
+        /* =========================================================
+           GAMES
+        ========================================================= */
+
+        .games-section {
+            background: var(--background);
         }
 
-        .government-list li {
-            margin-bottom: 6px;
+        .games-banner {
+            padding: 55px;
+
+            background: var(--ink);
+            color: #ffffff;
+
+            position: relative;
+
+            overflow: hidden;
         }
 
-        /* SYMBOLS */
+        .games-banner::before,
+        .games-banner::after {
+            content: "";
 
-        .symbol {
+            position: absolute;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+            border-radius: 50%;
+        }
+
+        .games-banner::before {
+            width: 350px;
+            height: 350px;
+
+            right: -100px;
+            top: -160px;
+        }
+
+        .games-banner::after {
+            width: 230px;
+            height: 230px;
+
+            right: -40px;
+            top: -100px;
+        }
+
+        .games-content {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 700px;
+        }
+
+        .games-content .eyebrow {
+            color:
+                rgba(255, 255, 255, 0.55);
+        }
+
+        .games-content h2 {
+            margin-bottom: 15px;
+
+            font-size:
+                clamp(31px, 4vw, 45px);
+        }
+
+        .games-content p {
+            color:
+                rgba(255, 255, 255, 0.66);
+
+            font-size: 15px;
+        }
+
+
+        /* =========================================================
+           COMMUNITY
+        ========================================================= */
+
+        .community-section {
+            background: #ffffff;
+        }
+
+        .community-layout {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 24px;
+        }
+
+        .community-card {
+            padding: 40px;
+
+            border:
+                1px solid
+                var(--border);
+
+            background: var(--surface-soft);
+        }
+
+        .community-card h3 {
+            margin-bottom: 12px;
+
+            font-size: 24px;
+        }
+
+        .community-card p {
+            margin-bottom: 23px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================================
+           DISCLAIMER
+        ========================================================= */
+
+        .disclaimer {
+            background: #eef1f3;
+
+            border-top:
+                1px solid
+                var(--border);
+
+            border-bottom:
+                1px solid
+                var(--border);
+        }
+
+        .disclaimer-inner {
+            padding: 42px 0;
+
             text-align: center;
         }
 
-        .symbol img {
-            width: 220px;
-            max-width: 80%;
-            max-height: 220px;
-            object-fit: contain;
-            margin-bottom: 20px;
-            box-shadow: none;
+        .disclaimer-inner h3 {
+            margin-bottom: 10px;
+
+            font-size: 17px;
         }
 
-        /* ACCOUNTS */
+        .disclaimer-inner p {
+            max-width: 850px;
 
-        .accounts a {
-            display: block;
-            margin-top: 12px;
-            color: #17202a;
-            font-weight: 700;
-            text-decoration: none;
+            margin: 0 auto;
+
+            color: var(--muted);
+
+            font-size: 13px;
         }
 
-        .accounts a:hover {
-            opacity: 0.6;
-        }
 
-        /* PRESIDENCY */
-
-        .president-title {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #66717c;
-            margin-bottom: 8px;
-        }
-
-        .status {
-            display: inline-block;
-            margin-top: 18px;
-            padding: 6px 12px;
-            border: 1px solid #dfe3e8;
-            font-size: 12px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* FOOTER */
+        /* =========================================================
+           FOOTER
+        ========================================================= */
 
         footer {
-            background: #17202a;
+            background: #11181f;
+
             color: #ffffff;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 14px;
         }
 
-        footer p {
-            opacity: 0.7;
-            margin-top: 8px;
+        .footer-main {
+            padding: 65px 0 45px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.4fr
+                0.8fr
+                0.8fr;
+
+            gap: 50px;
         }
 
-        /* MOBILE */
+        .footer-brand {
+            display: flex;
+            align-items: center;
 
-        @media (max-width: 750px) {
+            gap: 13px;
 
-            header {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand img {
+            width: 43px;
+            height: 27px;
+
+            object-fit: cover;
+        }
+
+        .footer-brand strong {
+            font-size: 13px;
+
+            letter-spacing: 2px;
+        }
+
+        .footer-description {
+            max-width: 450px;
+
+            color:
+                rgba(255, 255, 255, 0.52);
+
+            font-size: 13px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 15px;
+
+            color:
+                rgba(255, 255, 255, 0.55);
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        .footer-column a {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color:
+                rgba(255, 255, 255, 0.76);
+
+            text-decoration: none;
+
+            font-size: 12px;
+        }
+
+        .footer-column a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            padding: 22px 0;
+
+            border-top:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color:
+                rgba(255, 255, 255, 0.38);
+
+            font-size: 10px;
+
+            letter-spacing: 0.4px;
+        }
+
+
+        /* =========================================================
+           BACK TO TOP
+        ========================================================= */
+
+        .back-to-top {
+            position: fixed;
+
+            right: 24px;
+            bottom: 24px;
+
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid
+                var(--border-dark);
+
+            background: #ffffff;
+
+            color: var(--ink);
+
+            text-decoration: none;
+
+            box-shadow:
+                var(--shadow-md);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform:
+                translateY(10px);
+
+            transition:
+                opacity var(--transition),
+                visibility var(--transition),
+                transform var(--transition);
+
+            z-index: 900;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =========================================================
+           SCROLL REVEAL
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform:
+                translateY(22px);
+
+            transition:
+                opacity 600ms ease,
+                transform 600ms ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 950px) {
+
+            .main-nav {
+                display: none;
+
+                position: absolute;
+
+                left: 22px;
+                right: 22px;
+                top: 72px;
+
+                padding: 12px;
+
                 flex-direction: column;
-                gap: 15px;
+                align-items: stretch;
+
+                background: #ffffff;
+
+                border:
+                    1px solid
+                    var(--border);
+
+                box-shadow:
+                    var(--shadow-md);
             }
 
-            nav {
-                text-align: center;
+            .main-nav.open {
+                display: flex;
             }
 
-            nav a {
-                margin: 0 7px;
-                font-size: 13px;
+            .main-nav a {
+                padding: 14px;
+
+                border-bottom:
+                    1px solid
+                    var(--border);
             }
 
-            .grid {
-                grid-template-columns: 1fr;
+            .main-nav a:last-child {
+                border-bottom: 0;
             }
 
-            .hero h1 {
-                letter-spacing: 2px;
+            .main-nav a::after {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .branch-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .office-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .account-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .footer-main {
+                grid-template-columns:
+                    1fr
+                    1fr;
+            }
+
+        }
+
+
+        @media (max-width: 760px) {
+
+            .topbar-text {
+                display: none;
+            }
+
+            .topbar-inner {
+                justify-content: center;
+            }
+
+            .section {
+                padding: 75px 0;
+            }
+
+            .hero {
+                min-height: 720px;
+            }
+
+            .hero-emblem {
+                width: 80px;
+                height: 80px;
             }
 
             .hero-flag {
-                width: 240px;
+                width: 270px;
             }
+
+            .symbol-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .about-layout {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .department-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .framework-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .government-banner {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                padding: 35px;
+            }
+
+            .community-layout {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .footer-main {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
         }
+
+
+        @media (max-width: 480px) {
+
+            .container {
+                width:
+                    calc(100% - 30px);
+            }
+
+            .header-inner {
+                min-height: 70px;
+            }
+
+            .hero {
+                min-height: 670px;
+            }
+
+            .hero-flag {
+                width: 235px;
+
+                margin-bottom: 30px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-official {
+                font-size: 11px;
+
+                letter-spacing: 2px;
+            }
+
+            .hero-motto {
+                font-size: 10px;
+
+                letter-spacing: 2.5px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-actions .button {
+                width: 220px;
+            }
+
+            .symbol-card,
+            .department-card,
+            .community-card {
+                padding: 28px;
+            }
+
+            .games-banner {
+                padding: 35px 28px;
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-<header>
 
-    <div class="brand">
+    <!-- =========================================================
+         TOP BAR
+    ========================================================== -->
 
-        <img src="flag.png" alt="Flag of Valoria">
+    <div class="topbar">
 
-        <span>VALORIA</span>
+        <div class="container topbar-inner">
 
-    </div>
+            <span class="topbar-text">
+                Official Digital Presence of the State of Valoria
+            </span>
 
-    <nav>
-
-        <a href="#about">About</a>
-        <a href="#government">Federal Government</a>
-        <a href="#symbols">Symbols</a>
-        <a href="#accounts">Accounts</a>
-        <a href="#games">Games</a>
-
-    </nav>
-
-</header>
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <img
-            class="hero-flag"
-            src="flag.png"
-            alt="Flag of Valoria"
-        >
-
-        <h1>STATE OF VALORIA</h1>
-
-        <p class="official-title">
-            Official Website of the State of Valoria
-        </p>
-
-        <p class="motto">
-            Peace · Freedom · Unity
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#about" class="button">
-                Explore Valoria
-            </a>
-
-            <a href="#government" class="button secondary">
+            <a
+                class="topbar-link"
+                href="#government"
+            >
                 Federal Government
             </a>
 
@@ -395,385 +1862,1642 @@
 
     </div>
 
-</section>
 
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
 
-<!-- STATE SYMBOLS -->
+    <header class="site-header">
 
-<section id="symbols">
-
-    <h2>State Symbols</h2>
-
-    <p class="section-intro">
-
-        The official symbols of Valoria represent its identity,
-        principles and national character.
-
-    </p>
-
-    <div class="grid">
-
-        <div class="card symbol">
-
-            <img
-                src="flag.png"
-                alt="Flag of Valoria"
-            >
-
-            <h3>National Flag</h3>
-
-            <p>
-                The official flag of the State of Valoria.
-            </p>
-
-        </div>
-
-
-        <div class="card symbol">
-
-            <img
-                src="emblem.png"
-                alt="The Valorian Compass"
-            >
-
-            <h3>The Valorian Compass</h3>
-
-            <p>
-
-                The four-point compass featured at the center
-                of the national flag serves as the principal symbol
-                of Valoria.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-    <h2>About Valoria</h2>
-
-    <p class="section-intro">
-
-        Welcome to the official website of the State of Valoria.
-        This platform provides information about Valoria, its identity,
-        symbols, leadership and official activities.
-
-    </p>
-
-    <div class="grid">
-
-        <div class="card">
-
-            <h3>The State</h3>
-
-            <p>
-
-                The State of Valoria is a micronational project established
-                in 2026, built around its own identity, symbols and institutions.
-
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>Established</h3>
-
-            <p>
-                Valoria was established in 2026.
-            </p>
-
-            <span class="status">
-                Established 2026
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- FEDERAL GOVERNMENT -->
-
-<section id="government">
-
-    <h2>Federal Government</h2>
-
-    <p class="section-intro">
-
-        The Federal Government of Valoria is organized into
-        executive, legislative and judicial branches, together
-        with federal departments serving the Valorian community.
-
-    </p>
-
-    <div class="grid">
-
-        <div class="card government-card">
-
-            <div class="branch-label">
-                Executive Branch
-            </div>
-
-            <h3>Executive Branch</h3>
-
-            <p>
-                The executive branch is led by the President
-                and Vice President of Valoria.
-            </p>
-
-            <ul class="government-list">
-
-                <li>President of Valoria</li>
-                <li>Vice President</li>
-                <li>Cabinet</li>
-
-            </ul>
-
-        </div>
-
-
-        <div class="card government-card">
-
-            <div class="branch-label">
-                Legislative Branch
-            </div>
-
-            <h3>Legislative Branch</h3>
-
-            <p>
-                The legislative branch represents the Valorian
-                community through a bicameral legislature.
-            </p>
-
-            <ul class="government-list">
-
-                <li>Senate</li>
-                <li>House of Representatives</li>
-
-            </ul>
-
-        </div>
-
-
-        <div class="card government-card">
-
-            <div class="branch-label">
-                Judicial Branch
-            </div>
-
-            <h3>Judicial Branch</h3>
-
-            <p>
-                The judicial branch interprets the laws and
-                constitutional framework of Valoria.
-            </p>
-
-            <ul class="government-list">
-
-                <li>Supreme Court</li>
-
-            </ul>
-
-        </div>
-
-
-        <div class="card government-card">
-
-            <div class="branch-label">
-                Federal Departments
-            </div>
-
-            <h3>Federal Departments</h3>
-
-            <p>
-                Federal departments manage important areas
-                of Valoria's community and administration.
-            </p>
-
-            <ul class="government-list">
-
-                <li>Department of State</li>
-                <li>Department of Communications</li>
-                <li>Department of Homeland Security</li>
-                <li>Department of Justice</li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- PRESIDENCY -->
-
-<section id="presidency">
-
-    <h2>Presidency</h2>
-
-    <div class="card">
-
-        <p class="president-title">
-            Head of State
-        </p>
-
-        <h3>
-            President of the State of Valoria
-        </h3>
-
-        <p>
-
-            The President serves as Head of State and
-            Commander-in-Chief of the Valorian Armed Forces.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- ACCOUNTS -->
-
-<section id="accounts">
-
-    <h2>Official Accounts</h2>
-
-    <p class="section-intro">
-
-        Official social media and communication channels of Valoria.
-
-    </p>
-
-    <div class="grid">
-
-        <div class="card accounts">
-
-            <h3>Social Media</h3>
-
-            <p>
-                Official Valorian accounts and communications.
-            </p>
+        <div class="container header-inner">
 
             <a
-                href="https://www.instagram.com/valoria.state/"
-                target="_blank"
-                rel="noopener noreferrer"
+                class="brand"
+                href="#top"
             >
-                Instagram — @valoria.state →
+
+                <img
+                    class="brand-flag"
+                    src="flag.png"
+                    alt="Flag of Valoria"
+                >
+
+                <span class="brand-text">
+
+                    <span class="brand-name">
+                        VALORIA
+                    </span>
+
+                    <span class="brand-subtitle">
+                        State of Valoria
+                    </span>
+
+                </span>
+
             </a>
 
-            <a
-                href="https://www.youtube.com/@StateofValoria"
-                target="_blank"
-                rel="noopener noreferrer"
+
+            <nav
+                class="main-nav"
+                id="mainNav"
             >
-                YouTube — StateofValoria →
-            </a>
 
-            <a
-                href="https://discord.gg/6ryuwZMVkg"
-                target="_blank"
-                rel="noopener noreferrer"
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#government">
+                    Federal Government
+                </a>
+
+                <a href="#symbols">
+                    Symbols
+                </a>
+
+                <a href="#accounts">
+                    Accounts
+                </a>
+
+                <a href="#games">
+                    Games
+                </a>
+
+            </nav>
+
+
+            <button
+                class="mobile-menu"
+                id="mobileMenu"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
             >
-                Discord — Official Server →
-            </a>
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main id="top">
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-grid"></div>
+
+            <div class="hero-ring one"></div>
+            <div class="hero-ring two"></div>
+            <div class="hero-ring three"></div>
+
+
+            <div class="hero-content reveal">
+
+                <img
+                    class="hero-emblem"
+                    src="emblem.png"
+                    alt="Emblem of Valoria"
+                >
+
+
+                <img
+                    class="hero-flag"
+                    src="flag.png"
+                    alt="Flag of Valoria"
+                >
+
+
+                <h1>
+                    STATE OF VALORIA
+                </h1>
+
+
+                <p class="hero-official">
+                    Official Website
+                </p>
+
+
+                <p class="hero-motto">
+                    Peace · Freedom · Unity
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a
+                        class="button button-primary"
+                        href="#about"
+                    >
+                        Explore Valoria
+                    </a>
+
+                    <a
+                        class="button button-secondary"
+                        href="#government"
+                    >
+                        Federal Government
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             NOTICE
+        ====================================================== -->
+
+        <div class="notice">
+
+            <div class="container notice-inner">
+
+                <span class="notice-mark"></span>
+
+                <p>
+                    Welcome to the official digital presence
+                    of the State of Valoria.
+                </p>
+
+            </div>
 
         </div>
 
 
-        <div class="card">
+        <!-- =====================================================
+             SYMBOLS
+        ====================================================== -->
 
-            <h3>Official Communications</h3>
+        <section
+            class="section symbols-section"
+            id="symbols"
+        >
 
-            <p>
+            <div class="container">
 
-                Official announcements and public communications
-                from Valoria.
+                <div class="section-heading reveal">
 
-            </p>
+                    <span class="eyebrow">
+                        National Identity
+                    </span>
+
+                    <h2>
+                        State Symbols
+                    </h2>
+
+                    <p>
+                        The official symbols of Valoria represent
+                        its identity, principles and national character.
+                    </p>
+
+                </div>
+
+
+                <div class="symbol-grid">
+
+
+                    <article class="symbol-card reveal">
+
+                        <span class="symbol-number">
+                            01
+                        </span>
+
+
+                        <div class="symbol-image-wrap">
+
+                            <img
+                                class="symbol-image"
+                                src="flag.png"
+                                alt="Flag of Valoria"
+                            >
+
+                        </div>
+
+
+                        <h3>
+                            National Flag
+                        </h3>
+
+                        <p>
+                            The official flag of the State of Valoria
+                            and one of the principal symbols of Valorian
+                            identity.
+                        </p>
+
+                    </article>
+
+
+                    <article class="symbol-card reveal">
+
+                        <span class="symbol-number">
+                            02
+                        </span>
+
+
+                        <div class="symbol-image-wrap">
+
+                            <img
+                                class="symbol-image"
+                                src="emblem.png"
+                                alt="Emblem of Valoria"
+                            >
+
+                        </div>
+
+
+                        <h3>
+                            The Valorian Emblem
+                        </h3>
+
+                        <p>
+                            The official emblem serves as a central
+                            symbol of Valoria and its institutions.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
+        <section
+            class="section about-section"
+            id="about"
+        >
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="eyebrow">
+                        About the State
+                    </span>
+
+                    <h2>
+                        About Valoria
+                    </h2>
+
+                    <p>
+                        Learn about the identity, structure and
+                        digital community that make up Valoria.
+                    </p>
+
+                </div>
+
+
+                <div class="about-layout">
+
+
+                    <div class="about-main reveal">
+
+                        <h3>
+                            A Micronational Project
+                        </h3>
+
+                        <p>
+                            The State of Valoria is a micronational
+                            project and online community built around
+                            a shared identity, symbols, institutions
+                            and community activities.
+                        </p>
+
+                        <p>
+                            Valoria maintains its own organizational
+                            structure and civic framework for members
+                            participating in the project.
+                        </p>
+
+                        <p>
+                            The official website serves as the central
+                            digital point for information, announcements,
+                            institutions and community activities.
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-facts reveal">
+
+
+                        <div class="fact">
+
+                            <span class="fact-label">
+                                Project
+                            </span>
+
+                            <span class="fact-value">
+                                State of Valoria
+                            </span>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <span class="fact-label">
+                                Type
+                            </span>
+
+                            <span class="fact-value">
+                                Micronational Project
+                            </span>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <span class="fact-label">
+                                Founded
+                            </span>
+
+                            <span class="fact-value">
+                                2026
+                            </span>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <span class="fact-label">
+                                Community
+                            </span>
+
+                            <span class="fact-value">
+                                Digital / Online
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FEDERAL GOVERNMENT
+        ====================================================== -->
+
+        <section
+            class="section government-section"
+            id="government"
+        >
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="eyebrow">
+                        Government of Valoria
+                    </span>
+
+                    <h2>
+                        Federal Government
+                    </h2>
+
+                    <p>
+                        The Federal Government of Valoria is organized
+                        into executive, legislative and judicial branches,
+                        supported by federal departments serving the
+                        Valorian community.
+                    </p>
+
+                </div>
+
+
+                <div class="branch-grid">
+
+
+                    <article class="branch-card reveal">
+
+                        <div class="branch-icon">
+                            E
+                        </div>
+
+                        <div class="label">
+                            Executive Branch
+                        </div>
+
+                        <h3>
+                            Presidency
+                        </h3>
+
+                        <p>
+                            The executive branch is led by the President
+                            and Vice President, with the Cabinet supporting
+                            the administration of the Federal Government.
+                        </p>
+
+                    </article>
+
+
+                    <article class="branch-card reveal">
+
+                        <div class="branch-icon">
+                            L
+                        </div>
+
+                        <div class="label">
+                            Legislative Branch
+                        </div>
+
+                        <h3>
+                            Congress
+                        </h3>
+
+                        <p>
+                            The legislative branch consists of the Senate
+                            and the House of Representatives and provides
+                            a framework for community representation.
+                        </p>
+
+                    </article>
+
+
+                    <article class="branch-card reveal">
+
+                        <div class="branch-icon">
+                            J
+                        </div>
+
+                        <div class="label">
+                            Judicial Branch
+                        </div>
+
+                        <h3>
+                            Supreme Court
+                        </h3>
+
+                        <p>
+                            The judicial branch provides interpretation
+                            and review within Valoria's internal civic
+                            and constitutional framework.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+
+                <div class="government-banner reveal">
+
+                    <div>
+
+                        <h3>
+                            Federal Departments
+                        </h3>
+
+                        <p>
+                            Four federal departments currently form
+                            the administrative structure of Valoria.
+                        </p>
+
+                    </div>
+
+                    <a
+                        class="button"
+                        href="#departments"
+                    >
+                        View Departments
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             LEADERSHIP
+        ====================================================== -->
+
+        <section
+            class="section leadership-section"
+            id="leadership"
+        >
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="eyebrow">
+                        Federal Leadership
+                    </span>
+
+                    <h2>
+                        Offices of Government
+                    </h2>
+
+                    <p>
+                        The principal offices forming the executive,
+                        legislative and judicial institutions of Valoria.
+                    </p>
+
+                </div>
+
+
+                <div class="office-grid">
+
+
+                    <article class="office-card reveal">
+
+                        <div class="office-label">
+                            Executive
+                        </div>
+
+                        <h3>
+                            President of Valoria
+                        </h3>
+
+                        <p>
+                            Head of the executive branch and principal
+                            representative of the Federal Government.
+                        </p>
+
+                        <span class="office-status">
+                            Official Office
+                        </span>
+
+                    </article>
+
+
+                    <article class="office-card reveal">
+
+                        <div class="office-label">
+                            Executive
+                        </div>
+
+                        <h3>
+                            Vice President
+                        </h3>
+
+                        <p>
+                            Deputy executive office supporting the
+                            President and the Federal Government.
+                        </p>
+
+                        <span class="office-status">
+                            Official Office
+                        </span>
+
+                    </article>
+
+
+                    <article class="office-card reveal">
+
+                        <div class="office-label">
+                            Executive
+                        </div>
+
+                        <h3>
+                            Cabinet
+                        </h3>
+
+                        <p>
+                            Senior officials responsible for leading
+                            the Federal Departments of Valoria.
+                        </p>
+
+                        <span class="office-status">
+                            Executive Council
+                        </span>
+
+                    </article>
+
+
+                    <article class="office-card reveal">
+
+                        <div class="office-label">
+                            Legislature
+                        </div>
+
+                        <h3>
+                            Senate
+                        </h3>
+
+                        <p>
+                            Upper chamber of the Valorian Federal
+                            Legislature.
+                        </p>
+
+                        <span class="office-status">
+                            Congress
+                        </span>
+
+                    </article>
+
+
+                    <article class="office-card reveal">
+
+                        <div class="office-label">
+                            Legislature
+                        </div>
+
+                        <h3>
+                            House of Representatives
+                        </h3>
+
+                        <p>
+                            Representative chamber of the Valorian
+                            Federal Legislature.
+                        </p>
+
+                        <span class="office-status">
+                            Congress
+                        </span>
+
+                    </article>
+
+
+                    <article class="office-card reveal">
+
+                        <div class="office-label">
+                            Judiciary
+                        </div>
+
+                        <h3>
+                            Supreme Court
+                        </h3>
+
+                        <p>
+                            Highest judicial institution within
+                            Valoria's internal framework.
+                        </p>
+
+                        <span class="office-status">
+                            Judiciary
+                        </span>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             DEPARTMENTS
+        ====================================================== -->
+
+        <section
+            class="section departments-section"
+            id="departments"
+        >
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="eyebrow">
+                        Federal Administration
+                    </span>
+
+                    <h2>
+                        Federal Departments
+                    </h2>
+
+                    <p>
+                        Each department has a defined role within
+                        Valoria's digital community and federal
+                        administration.
+                    </p>
+
+                </div>
+
+
+                <div class="department-grid">
+
+
+                    <!-- DEPARTMENT OF STATE -->
+
+                    <article class="department-card reveal">
+
+                        <span class="department-number">
+                            01
+                        </span>
+
+                        <span class="department-code">
+                            DOS
+                        </span>
+
+                        <h3>
+                            Department of State
+                        </h3>
+
+                        <p>
+                            Responsible for Valoria's external relations,
+                            diplomatic communication and relationships
+                            with other micronational projects and communities.
+                        </p>
+
+                        <ul class="department-responsibilities">
+
+                            <li>
+                                External relations
+                            </li>
+
+                            <li>
+                                Diplomatic communications
+                            </li>
+
+                            <li>
+                                Micronational partnerships
+                            </li>
+
+                            <li>
+                                Official representatives
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+
+                    <!-- DEPARTMENT OF COMMUNICATIONS -->
+
+                    <article class="department-card reveal">
+
+                        <span class="department-number">
+                            02
+                        </span>
+
+                        <span class="department-code">
+                            DOC
+                        </span>
+
+                        <h3>
+                            Department of Communications
+                        </h3>
+
+                        <p>
+                            Responsible for official communications,
+                            digital media, announcements and Valoria's
+                            public information channels.
+                        </p>
+
+                        <ul class="department-responsibilities">
+
+                            <li>
+                                Official announcements
+                            </li>
+
+                            <li>
+                                Website communications
+                            </li>
+
+                            <li>
+                                Social media
+                            </li>
+
+                            <li>
+                                Public information
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+
+                    <!-- HOMELAND SECURITY -->
+
+                    <article class="department-card reveal">
+
+                        <span class="department-number">
+                            03
+                        </span>
+
+                        <span class="department-code">
+                            DHS
+                        </span>
+
+                        <h3>
+                            Department of Homeland Security
+                        </h3>
+
+                        <p>
+                            Responsible for internal digital security,
+                            community safety and protection of official
+                            online spaces.
+                        </p>
+
+                        <ul class="department-responsibilities">
+
+                            <li>
+                                Digital community security
+                            </li>
+
+                            <li>
+                                Protection of official platforms
+                            </li>
+
+                            <li>
+                                Community safety
+                            </li>
+
+                            <li>
+                                Security coordination
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+
+                    <!-- DEPARTMENT OF JUSTICE -->
+
+                    <article class="department-card reveal">
+
+                        <span class="department-number">
+                            04
+                        </span>
+
+                        <span class="department-code">
+                            DOJ
+                        </span>
+
+                        <h3>
+                            Department of Justice
+                        </h3>
+
+                        <p>
+                            Responsible for internal legal administration,
+                            rules, complaints and matters concerning
+                            Valoria's civic framework.
+                        </p>
+
+                        <ul class="department-responsibilities">
+
+                            <li>
+                                Internal rules
+                            </li>
+
+                            <li>
+                                Complaints and disputes
+                            </li>
+
+                            <li>
+                                Civic procedures
+                            </li>
+
+                            <li>
+                                Justice administration
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CIVIC FRAMEWORK
+        ====================================================== -->
+
+        <section
+            class="section framework-section"
+            id="framework"
+        >
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="eyebrow">
+                        Civic Structure
+                    </span>
+
+                    <h2>
+                        Civic Framework
+                    </h2>
+
+                    <p>
+                        The internal framework through which the
+                        Valorian community organizes its institutions
+                        and activities.
+                    </p>
+
+                </div>
+
+
+                <div class="framework-grid">
+
+
+                    <article class="framework-card reveal">
+
+                        <h3>
+                            Constitution
+                        </h3>
+
+                        <p>
+                            The constitutional framework defines the
+                            institutions, principles and internal
+                            organization of Valoria.
+                        </p>
+
+                    </article>
+
+
+                    <article class="framework-card reveal">
+
+                        <h3>
+                            Federal Institutions
+                        </h3>
+
+                        <p>
+                            Executive, legislative and judicial
+                            institutions provide the organizational
+                            structure of the Federal Government.
+                        </p>
+
+                    </article>
+
+
+                    <article class="framework-card reveal">
+
+                        <h3>
+                            Community Membership
+                        </h3>
+
+                        <p>
+                            Valorian participation is based on involvement
+                            in the project's digital community and its
+                            official platforms.
+                        </p>
+
+                    </article>
+
+
+                    <article class="framework-card reveal">
+
+                        <h3>
+                            Official Communications
+                        </h3>
+
+                        <p>
+                            Government announcements and public information
+                            are distributed through official Valorian channels.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ACCOUNTS
+        ====================================================== -->
+
+        <section
+            class="section accounts-section"
+            id="accounts"
+        >
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="eyebrow">
+                        Digital Presence
+                    </span>
+
+                    <h2>
+                        Official Accounts
+                    </h2>
+
+                    <p>
+                        Follow the official State of Valoria accounts
+                        and join the community.
+                    </p>
+
+                </div>
+
+
+                <div class="account-grid">
+
+
+                    <a
+                        class="account-card reveal"
+                        href="https://www.instagram.com/valoria.state/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="account-platform">
+                            Instagram
+                        </div>
+
+                        <h3>
+                            @valoria.state
+                        </h3>
+
+                        <p>
+                            Official Valorian social media presence.
+                        </p>
+
+                        <span class="account-arrow">
+                            Visit Instagram →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        class="account-card reveal"
+                        href="https://www.youtube.com/@StateofValoria"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="account-platform">
+                            YouTube
+                        </div>
+
+                        <h3>
+                            StateofValoria
+                        </h3>
+
+                        <p>
+                            Official videos, announcements and media.
+                        </p>
+
+                        <span class="account-arrow">
+                            Visit YouTube →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        class="account-card reveal"
+                        href="https://discord.gg/6ryuwZMVkg"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="account-platform">
+                            Discord
+                        </div>
+
+                        <h3>
+                            Valoria Community
+                        </h3>
+
+                        <p>
+                            Join the official Valorian community server.
+                        </p>
+
+                        <span class="account-arrow">
+                            Join Discord →
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             GAMES
+        ====================================================== -->
+
+        <section
+            class="section games-section"
+            id="games"
+        >
+
+            <div class="container">
+
+                <div class="games-banner reveal">
+
+                    <div class="games-content">
+
+                        <span class="eyebrow">
+                            Community Activities
+                        </span>
+
+                        <h2>
+                            Games & Activities
+                        </h2>
+
+                        <p>
+                            Valoria may host games, competitions,
+                            events and other community activities
+                            through its digital platforms.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COMMUNITY
+        ====================================================== -->
+
+        <section
+            class="section community-section"
+            id="community"
+        >
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="eyebrow">
+                        Join Valoria
+                    </span>
+
+                    <h2>
+                        The Valorian Community
+                    </h2>
+
+                    <p>
+                        Participate in the project through its official
+                        digital platforms and community spaces.
+                    </p>
+
+                </div>
+
+
+                <div class="community-layout">
+
+
+                    <div class="community-card reveal">
+
+                        <h3>
+                            Join the Community
+                        </h3>
+
+                        <p>
+                            The official Discord server is the primary
+                            community space for discussion, activities,
+                            announcements and participation.
+                        </p>
+
+                        <a
+                            class="button button-primary"
+                            href="https://discord.gg/6ryuwZMVkg"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Join Discord
+                        </a>
+
+                    </div>
+
+
+                    <div class="community-card reveal">
+
+                        <h3>
+                            Follow Official News
+                        </h3>
+
+                        <p>
+                            Follow Valoria's official social channels
+                            for announcements, media and updates.
+                        </p>
+
+                        <a
+                            class="button button-secondary"
+                            href="https://www.instagram.com/valoria.state/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Official Instagram
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             DISCLAIMER
+        ====================================================== -->
+
+        <section class="disclaimer">
+
+            <div class="container disclaimer-inner">
+
+                <h3>
+                    Official Project Notice
+                </h3>
+
+                <p>
+                    Valoria is a micronational project and does not
+                    claim sovereignty over territory belonging to another
+                    state. References to governmental institutions,
+                    departments and offices describe the internal
+                    organization of the Valorian project and community.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="container">
+
+
+            <div class="footer-main">
+
+
+                <div>
+
+                    <div class="footer-brand">
+
+                        <img
+                            src="flag.png"
+                            alt="Flag of Valoria"
+                        >
+
+                        <strong>
+                            STATE OF VALORIA
+                        </strong>
+
+                    </div>
+
+                    <p class="footer-description">
+
+                        The official digital presence of the State
+                        of Valoria, a micronational project and
+                        online community.
+
+                    </p>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Government
+                    </h4>
+
+                    <a href="#government">
+                        Federal Government
+                    </a>
+
+                    <a href="#leadership">
+                        Offices
+                    </a>
+
+                    <a href="#departments">
+                        Departments
+                    </a>
+
+                    <a href="#framework">
+                        Civic Framework
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Connect
+                    </h4>
+
+                    <a
+                        href="https://www.instagram.com/valoria.state/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Instagram
+                    </a>
+
+                    <a
+                        href="https://www.youtube.com/@StateofValoria"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        YouTube
+                    </a>
+
+                    <a
+                        href="https://discord.gg/6ryuwZMVkg"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 State of Valoria. All rights reserved.
+                </p>
+
+                <p>
+                    Micronational Project · Digital Community
+                </p>
+
+            </div>
+
 
         </div>
 
-    </div>
-
-</section>
+    </footer>
 
 
-<!-- GAMES -->
+    <!-- =========================================================
+         BACK TO TOP
+    ========================================================== -->
 
-<section id="games">
-
-    <h2>Games & Activities</h2>
-
-    <p class="section-intro">
-
-        Games, competitions and community activities associated
-        with the Valorian project.
-
-    </p>
-
-    <div class="grid">
-
-        <div class="card">
-
-            <h3>Valorian Games</h3>
-
-            <p>
-
-                Games and competitions organized by Valoria.
-
-            </p>
-
-        </div>
+    <a
+        href="#top"
+        class="back-to-top"
+        id="backToTop"
+        aria-label="Back to top"
+    >
+        ↑
+    </a>
 
 
-        <div class="card">
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
 
-            <h3>Coming Soon</h3>
+    <script>
 
-            <p>
+        /* =====================================================
+           MOBILE NAVIGATION
+        ====================================================== */
 
-                More games and activities will be announced soon.
+        const mobileMenu =
+            document.getElementById("mobileMenu");
 
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
+        const mainNav =
+            document.getElementById("mainNav");
 
 
-<!-- FOOTER -->
+        mobileMenu.addEventListener(
+            "click",
+            function () {
 
-<footer>
+                mainNav.classList.toggle("open");
 
-    <strong>STATE OF VALORIA</strong>
+                const isOpen =
+                    mainNav.classList.contains("open");
 
-    <p>
-        Official Website • Established 2026
-    </p>
+                mobileMenu.setAttribute(
+                    "aria-expanded",
+                    isOpen
+                );
 
-    <p>
+            }
+        );
 
-        Valoria is a micronational project and does not claim
-        sovereignty over territory belonging to another state.
 
-    </p>
+        const navLinks =
+            mainNav.querySelectorAll("a");
 
-</footer>
+
+        navLinks.forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        mainNav.classList.remove("open");
+
+                        mobileMenu.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ====================================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        const revealObserver =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                revealObserver.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(
+            function (element) {
+
+                revealObserver.observe(
+                    element
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           BACK TO TOP
+        ====================================================== */
+
+        const backToTop =
+            document.getElementById("backToTop");
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                if (
+                    window.scrollY > 650
+                ) {
+
+                    backToTop.classList.add(
+                        "visible"
+                    );
+
+                } else {
+
+                    backToTop.classList.remove(
+                        "visible"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           CLOSE MENU ON RESIZE
+        ====================================================== */
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                if (
+                    window.innerWidth > 950
+                ) {
+
+                    mainNav.classList.remove(
+                        "open"
+                    );
+
+                    mobileMenu.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           SMOOTH INTERNAL LINKS
+        ====================================================== */
+
+        document
+            .querySelectorAll('a[href^="#"]')
+            .forEach(
+                function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function (event) {
+
+                            const targetId =
+                                this.getAttribute("href");
+
+                            if (
+                                targetId === "#"
+                            ) {
+                                return;
+                            }
+
+                            const target =
+                                document.querySelector(
+                                    targetId
+                                );
+
+                            if (!target) {
+                                return;
+                            }
+
+                            event.preventDefault();
+
+                            target.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
+
+                        }
+                    );
+
+                }
+            );
+
+    </script>
 
 
 </body>
 </html>
+```
